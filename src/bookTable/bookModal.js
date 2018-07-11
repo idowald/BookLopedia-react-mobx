@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Modal} from "react-bootstrap";
-import {ToastDanger, ToastSuccess} from 'react-toastr-basic';
+import {ToastDanger} from 'react-toastr-basic';
 import Loading from 'react-loading-animation';
 import {observer} from 'mobx-react';
 import autobind from 'autobind-decorator'
