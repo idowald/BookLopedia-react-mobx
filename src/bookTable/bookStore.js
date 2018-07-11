@@ -9,6 +9,7 @@ class BookStore {
     @observable show = false;
     @observable loading = false;
     @observable newBookModal = {};
+    @observable mainRefresh = false;
     constructor() {
         this.bookCopy = null; //used to make changes
         this.deleteBook = null; //used to delete the book
@@ -21,8 +22,10 @@ class BookStore {
     }
     }
     getBooksFromServer() {
+        this.mainRefresh = true;
         get("src/mockServer/books.json", null, (response)=>{
             this.books = response;
+            this.mainRefresh = false;
         });
     }
     showDelete(book){

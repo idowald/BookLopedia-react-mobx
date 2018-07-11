@@ -1,8 +1,10 @@
 
 import React from 'react';
-import {observer, inject} from 'mobx-react';
+import {observer} from 'mobx-react';
 import {Button, PageHeader, Table} from "react-bootstrap";
 import BookRow from "./bookRow";
+import Loading from 'react-loading-animation';
+
 
 @observer
 export default class BookTable extends React.Component {
@@ -37,6 +39,7 @@ export default class BookTable extends React.Component {
                 <Button onClick={()=>this.props.BookStore.addNewBookModal()} bsStyle="info">Add new book </Button>
                 </div>
                 <div  style={{maxHeight: "800px", overflowY: "scroll", margin: "0px 10px 0px 10px"}}>
+                    {this.props.BookStore.mainRefresh && <Loading/>}
             <Table striped bordered condensed hover responsive>
                 <thead>
                 <tr>
